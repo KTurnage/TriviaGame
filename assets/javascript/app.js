@@ -47,67 +47,67 @@ function displayQuestion() {
 
     $("#question").html("<h2>" + pick.question + "</h2>");
     for (var i = 0; i < pick.choices.length; i++) {
-    var userChoice = $("<div>");
-    userChoice.addClass("answerChoice");
-    userChoice.html(pick.choices[i]);
-    userChoice.attr("data-guess", i);
-    $("#answer").append(userChoice);
+        var userChoice = $("<div>");
+        userChoice.addClass("answerChoice");
+        userChoice.html(pick.choices[i]);
+        userChoice.attr("data-guess", i);
+        $("#answer").append(userChoice);
     }
 
-$(".answerChoice").on("click", function(){
-    userGuess = parseInt($(this).attr("data-guess"));
-//correct guess
-    if (userGuess === pick.answer) {
-        stopTime();
-        correct++;
-        userGuess = "";
-        $("#answer").html("<p>CORRECT! You're helping Harry!</p>")
-    } else{
-        stop();
-        incorrect++;
-        userGuess = "";
-        $("#answer").html("<p>WRONG! Stop helping Voldemort! Correct Answer is" + pick.choices[pick.answer] + "</p>");
-    }
+    $(".answerChoice").on("click", function () {
+        userGuess = parseInt($(this).attr("data-guess"));
+        //correct guess
+        if (userGuess === pick.answer) {
+            stopTime();
+            correct++;
+            userGuess = "";
+            $("#answer").html("<p>CORRECT! You're helping Harry!</p>")
+        } else {
+            stop();
+            incorrect++;
+            userGuess = "";
+            $("#answer").html("<p>WRONG! Stop helping Voldemort! Correct Answer is" + pick.choices[pick.answer] + "</p>");
+        }
 
-})
-
-
-
+    })
 };
 
 
-// function correctAnswer() {
+//to get next question to populate on the page or results page
+function Page() {
+console.log("nextPage function running")
+newArray.push(pick);
 
-// }
+var nextPage = setTimeout(function () {
+    $("#answer").empty();
+    timer = 15;
 
-// function incorrectAnswer() {
+    if ((incorrect + correct + unanswered) === questionCount) {
+        console.log("checking page function if else")
+        $("#question").empty();
+        $("#question").html("<h3> Game Over! </h3>");
+        $("#answer").append("<h4> Correct: " + correct + "</h4>");
+        $("#answer").append("<h4> Inccorect: " + incorrect + "</h4>");
+        $("#answers").append("<h4> Unanswered: " + unanswered + "</h4>");
+        $("#reset").show();
+        $("#timer").hide();
+        correct = 0;
+        console.log(correct);
+        incorrect = 0;
+        console.log(incorrect);
+        unanswered = 0;
+        console.log(answered);
 
-// }
 
-// function checkAnswer() {
-//     if (question[i]:answer[i]) {
+    } else {
+        runTimer();
+        displayQuestion();
+    }
+}, 3000);
+};
 
-//     }
-//     else {
-
-//     }
-// }
-
-// function timeOut() {
-//     if (timer === 0);
-// }
-
-// function gameEnd() {
-//     if (questionCount === question.length) {
-
-//     }
-// }
 
 //Timer Functions
-
-
-
-
 function startTime() {
     clearInterval(intervalID);
     if (!running) {
