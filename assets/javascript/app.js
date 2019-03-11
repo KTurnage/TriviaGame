@@ -80,6 +80,19 @@ $("#startButton").on("click", function () {
     }
 
 });
+//this needs work still
+//answers are not being reset
+//timer is not being reset
+//everything needs empty
+$("#playAgain").on("click", function () {
+    $("#startButton").hide();
+    startTime();
+    displayQuestion();
+    for (var i = 0; i < questionsOnPage.length; i++) {
+        holder.push(questionsOnPage[i]);
+    }
+
+});
 
 
 function displayQuestion() {
