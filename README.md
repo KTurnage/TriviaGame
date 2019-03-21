@@ -2,7 +2,9 @@
 This will test the knowledge of how well people know the details of Harry Potter. 15 seconds to answer each question. Confirmations on correct answers. Alert with correct answer given for incorrectly answered questions. 
 
 ## Getting Started
-n/a
+[live link](https://github.com/KTurnage/TriviaGame/)
+
+[link to repository](https://github.com/KTurnage/TriviaGame)
 
 ### Prerequisites
 n/a
